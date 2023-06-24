@@ -19,7 +19,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -28,6 +28,9 @@ module.exports = {
     ],
   },
   plugins: [new MiniCssPlugin()],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   devtool: "source-map",
   devServer: {
     static: "./dist",
