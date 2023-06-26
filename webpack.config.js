@@ -7,8 +7,15 @@ if (process.env.NODE_ENV === "production") {
 }
 module.exports = {
   mode: mode,
+  output: {
+    assetModuleFilename: "images/[hash][ext][query]",
+  },
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset",
+      },
       {
         test: /\.s?css$/i,
         use: [
